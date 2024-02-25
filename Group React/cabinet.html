@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react?dev",
+          "react-dom/client": "https://esm.sh/react-dom/client?dev"
+        }
+      }
+</script>
+<script type="text/babel" data-type="module">
+      import React, { StrictMode } from 'react';
+      import { createRoot } from 'react-dom/client';
+
+      let App = function PersonalCabinet() {
+        const imageId = '67070/25001.281474976810925';
+        const imageUrl = `https://org.fa.ru/bitrix/galaktika/galaktika.vuzapi/public/files/users/${imageId}_optimized.jpg`;
+
+        return (
+          <div>
+            <nav>
+              <a href="groups.html"><button>Список групп</button></a>
+              <a href="subjects.html"><button>Список предметов</button></a>
+              <button>Личный кабинет</button>
+            </nav>
+            <div>
+              <h1>Личный кабинет</h1>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div>
+                  <img src={imageUrl} alt="User" width="150" />
+                </div>
+                <div style={{ marginLeft: '20px' }}>
+                  <p><strong>Учетный номер:</strong> 215782</p>
+                  <p><strong>Учебное подразделение:</strong> Факультет информационных технологий и анализа больших данных</p>
+                  <p><strong>Уровень подготовки:</strong> Бакалавр</p>
+                  <p><strong>Направление подготовки:</strong> Прикладная информатика</p>
+                  <p><strong>Квалификация:</strong> Бакалавр</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      const root = createRoot(document.getElementById('root'));
+      root.render(
+        <StrictMode>
+          <App />
+        </StrictMode>
+      );
+</script>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #87CEEB; /* Light blue color */
+  }
+
+  nav button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #87CEEB; /* Light blue color */
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  nav button:hover {
+    background-color: #4682b4; /* Darker shade on hover */
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+</style>
+
+</body>
+</html>

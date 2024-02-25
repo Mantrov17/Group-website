@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react?dev",
+          "react-dom/client": "https://esm.sh/react-dom/client?dev"
+        }
+      }
+</script>
+<script type="text/babel" data-type="module">
+      import React, { StrictMode } from 'react';
+      import { createRoot } from 'react-dom/client';
+
+      const groups = ['ПИ21-1', 'ПИ21-2', 'ПИ21-3'];
+
+      let App = function HomePage() {
+        return (
+          <div>
+            <nav>
+              <button>Список групп</button>
+              <a href="subjects.html"><button>Список предметов</button></a>
+              <a href="cabinet.html"><button>Личный кабинет</button></a>
+            </nav>
+            <div>
+              <h1>Список групп</h1>
+              <ul>
+                {groups.map((group, index) => (
+                  <li key={index}>
+                    <a href="tab.html">
+                      <button>{group}</button>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        );
+      };
+
+      const root = createRoot(document.getElementById('root'));
+      root.render(
+        <StrictMode>
+          <App />
+        </StrictMode>
+      );
+</script>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #87CEEB; /* Light blue color */
+  }
+
+  nav button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #87CEEB; /* Light blue color */
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  nav button:hover {
+    background-color: #4682b4; /* Darker shade on hover */
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  li button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #87CEEB;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  li button:hover {
+    background-color: #4682b4; /* Darker shade on hover */
+  }
+</style>
+
+</body>
+</html>
